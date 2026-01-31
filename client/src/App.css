@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0f172a;
+  font-family: Arial;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+
+.header {
+  background: #020617;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* CHAT */
+
+.chat {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+/* MESSAGE BUBBLES */
+
+.bubble {
+  max-width: 70%;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  line-height: 1.4;
+  animation: fade 0.3s;
+}
+
+.user {
+  background: #2563eb;
+  color: white;
+  margin-left: auto;
+}
+
+.bot {
+  background: #1e293b;
+  color: white;
+}
+
+/* INPUT */
+
+.input-box {
+  display: flex;
+  padding: 10px;
+  background: #020617;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background: #2563eb;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ANIMATION */
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .bubble {
+    max-width: 90%;
+  }
+}

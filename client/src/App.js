@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
+const BACKEND_URL = "https://zyra-ai-jj1l.onrender.com/chat";
+
 export default function App() {
 
   const [input, setInput] = useState("");
@@ -20,7 +22,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const res = await fetch("https://zyra-ai-jj1l.onrender.com", {
+      const res = await fetch(BACKEND_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input })
@@ -48,12 +50,12 @@ export default function App() {
 
           {chat.map((m, i) => (
             <div key={i} className={`msg ${m.role}`}>
-              {m.role === "zyra" && <span className="avatar">🤖</span>}
+              {m.role === "bot" && "🤖 "}
               {m.text}
             </div>
           ))}
 
-          {loading && <div className="msg bot">🤖 Thinking....</div>}
+          {loading && <div className="msg bot">🤖 Thinking...</div>}
 
           <div ref={bottomRef}></div>
 
